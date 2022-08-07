@@ -39,7 +39,7 @@ set(TEST_SRC_LIST
     tests/ControllerTests.cpp
 )
 
-add_executable(${PROJECT_NAME}-ut ${TEST_SRC_LIST})
+add_executable(${PROJECT_NAME}-ut ${SRC_LIST} ${TEST_SRC_LIST})
 
-include(GoogleTest)
-gtest_discover_tests(${PROJECT_NAME}-ut)
+# include(GoogleTest)
+# gtest_discover_tests(${PROJECT_NAME}-ut)
