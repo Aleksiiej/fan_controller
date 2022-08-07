@@ -5,17 +5,15 @@
 #include <memory>
 #include <iostream>
 
+constexpr double targetTemperature = 36.6;
+constexpr double tolerance = 0.5;
+
 int main()
 try {
-    SlowThermometer t;
-    Fan f;
-    double targetTemperature = 36.6;
-    double tolerance = .5;
-    Controller oldController{t, f, targetTemperature, tolerance, nullptr};
-    oldController.updateRpm();
-    oldController.displayInfo();
+    const SlowThermometer thermometer;
+    const Fan fan;
 
-    Controller newController{t, f, targetTemperature, tolerance, std::shared_ptr<LcdDisplay>()};
+    Controller newController{thermometer, fan, targetTemperature, tolerance, std::make_shared<LcdDisplay>()};
     newController.updateRpm();
     newController.displayInfo();
 

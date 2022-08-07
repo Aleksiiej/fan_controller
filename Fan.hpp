@@ -1,15 +1,17 @@
 #pragma once
 
-class Fan {
-    int rpm = 0;
-
+class Fan
+{
 public:
-    Fan();
-    Fan(const Fan&);
-    Fan(Fan&&);
+    Fan() = default;
+    Fan(const Fan &other) = delete;
+    Fan(const Fan &&other) = delete;
 
     void setSpeed(int newRpm);
-    int getSpeed();
-    bool disable();
-    bool enable();
+    int getSpeed() const noexcept;
+    bool disable() noexcept;
+    bool enable() noexcept;
+
+private:
+    int rpm{0};
 };

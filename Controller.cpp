@@ -1,12 +1,9 @@
 #include "Controller.hpp"
 
-Controller::Controller(SlowThermometer,
-                       Fan,
-                       double,
-                       double,
-                       std::shared_ptr<LcdDisplay>)
-{}
+Controller::Controller(const SlowThermometer &thermometer_, const Fan &fan_, double targetTemperature_, double tolerance_, std::shared_ptr<LcdDisplay>) noexcept
+{
+}
 
-void Controller::updateRpm() {}
+void Controller::updateRpm() const noexcept {}
 
-void Controller::displayInfo() {}
+void Controller::displayInfo() const noexcept {}
