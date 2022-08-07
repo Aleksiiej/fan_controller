@@ -19,7 +19,13 @@ project(FanController)
 
 add_compile_options(-Wall -Wextra -Wpedantic -g)
 include_directories(.)
-add_library(SlowThermometer-lib SlowThermometer/SlowThermometer.cpp)
+
+set(THERMOMETER_SRC_LIST
+SlowThermometer/IThermometer.cpp
+SlowThermometer/SlowThermometer.cpp
+)
+
+add_library(SlowThermometer-lib ${THERMOMETER_SRC_LIST})
 
 set(SRC_LIST
     Controller.hpp
